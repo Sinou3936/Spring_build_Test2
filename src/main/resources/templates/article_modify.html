@@ -1,0 +1,22 @@
+<form th:action="@{/article/modify/{id}(id=${article.id})}" method="post">
+
+    <input type="hidden" name="id" th:value="${article.id}">
+
+    <div class="mb-3">
+        <label>제목</label>
+        <input type="text"
+               name="title"
+               class="form-control"
+               th:value="${article.title}">
+    </div>
+
+    <div class="mb-3">
+        <label>내용</label>
+        <textarea name="content"
+                  class="form-control"
+                  rows="10"
+                  th:text="${article.content}"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">수정</button>
+</form>
