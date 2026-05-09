@@ -1,5 +1,6 @@
 package com.back.spring_build_test2.article;
 
+import com.back.spring_build_test2.Member.Member;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,4 +22,7 @@ public class Article {
     private String content;
 
     private LocalDateTime createDate;
+
+    @ManyToOne
+    private Member author;
 }

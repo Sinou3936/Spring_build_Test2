@@ -1,5 +1,6 @@
 package com.back.spring_build_test2.article;
 
+import com.back.spring_build_test2.Member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +18,12 @@ public class ArticleService {
         return articleRespoitory.findAll();
     }
 
-    public void create(String title, String content)
+    public void create(String title, String content, Member author)
     {
         Article article = new Article();
         article.setTitle(title);
         article.setContent(content);
+        article.setAuthor(author);
         article.setCreateDate(LocalDateTime.now());
 
         articleRespoitory.save(article);

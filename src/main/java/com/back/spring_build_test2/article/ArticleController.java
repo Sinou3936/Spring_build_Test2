@@ -1,5 +1,7 @@
 package com.back.spring_build_test2.article;
 
+import com.back.spring_build_test2.Member.Member;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,9 +34,15 @@ public class ArticleController {
 
     @PostMapping("/create")
     public String postAddContent(@RequestParam(value = "title") String title,
-                                 @RequestParam(value = "content") String content){
+                                 @RequestParam(value = "content") String content,
+                                 HttpSession session){
 
-        articleService.create(title,content);
+        Member loginMember = (Member) session.getAttribute("loginMember");
+
+        if(loginMember == null)
+            return "redirect:/";
+
+        articleService.create(title,content, loginMember);
         return "redirect:/article/list";
     }
 
@@ -48,9 +56,17 @@ public class ArticleController {
     }
 
     @GetMapping("/modify/{id}")
-    public String modifyPage(@PathVariable BigInteger id, Model model) {
+    public String modifyPage(@PathVariable BigInteger id, Model model, HttpSession session) {
 
         Article article = articleService.findById(id);
+
+        Member loginMember = (Member) session.getAttribute("loginMember");
+
+        if(loginMember == null)
+            return "redirect:/user/login";
+
+        if(article.getAuthor().getId() != loginMember.getId())
+            return "redirect:/";
 
         model.addAttribute("article", article);
 
