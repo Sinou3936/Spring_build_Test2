@@ -1,30 +1,36 @@
-<h1>게시글 목록</h1>
+<html lang="ko" layout:decorate="~{layout}" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+<div layout:fragment="content" class="container" style="max-width: 860px;">
+    <div class="page-card">
+        <div class="d-flex justify-content-between align-items-center page-title mb-3">
+            <span>게시글 목록</span>
+            <a th:href="@{/article/create}" class="btn btn-primary btn-sm">+ 글 작성</a>
+        </div>
 
-
-<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
-<div class="container my-3">
-    <table class="table">
-        <thead class="table-dark">
-        <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>작성일시</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="article, loop : ${articleList}">
-            <td th:text="${loop.count}"></td>
-            <td>
-                <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.title}"></a>
-            </td>
-            <td th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
-        </tr>
-        </tbody>
-    </table>
-    <form th:action="@{/article/create}" method="get">
-        <button type="submit" class="btn btn-primary w-100">
-            등록하기
-        </button>
-    </form>
-
+        <table class="table mb-0">
+            <thead>
+            <tr>
+                <th style="width:60px;">#</th>
+                <th>제목</th>
+                <th style="width:160px;">작성일시</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="article, loop : ${articleList}">
+                <td th:text="${loop.count}" class="text-muted"></td>
+                <td>
+                    <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.title}"></a>
+                </td>
+                <td class="text-muted" style="font-size:.85rem;"
+                    th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(articleList)}">
+                <td colspan="3" class="text-center text-muted py-4">등록된 게시글이 없습니다.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+</body>
+</html>

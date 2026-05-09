@@ -1,16 +1,25 @@
-<html layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
-<div layout:fragment="content" class="container">
-    <h5 class="my-3 border-bottom pb-2">게시물 등록</h5>
-    <form th:action="@{/article/create}" method="post">
-        <div class="mb-3">
-            <label for="title" class="form-label">제목</label>
-            <input type="text" name="title" id="title" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">내용</label>
-            <textarea name="content" id="content" class="form-control" rows="10"></textarea>
-        </div>
-        <input type="submit" value="저장하기" class="btn btn-primary my-2">
-    </form>
+<html lang="ko" layout:decorate="~{layout}" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+<div layout:fragment="content" class="container" style="max-width: 760px;">
+    <div class="page-card">
+        <div class="page-title">게시글 등록</div>
+
+        <form th:action="@{/article/create}" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">제목</label>
+                <input type="text" name="title" id="title" class="form-control" placeholder="제목을 입력하세요">
+            </div>
+            <div class="mb-4">
+                <label for="content" class="form-label">내용</label>
+                <textarea name="content" id="content" class="form-control" rows="12" placeholder="내용을 입력하세요"></textarea>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">저장하기</button>
+                <a th:href="@{/article/list}" class="btn btn-outline-secondary ms-auto">← 목록으로</a>
+            </div>
+        </form>
+    </div>
 </div>
+</body>
 </html>
