@@ -25,8 +25,15 @@ containing을 이용하여 검색 하는 방식을 사용 했습니다.
 
 ## UI/UX (화면 캡처본을 복사 붙여 넣기, url 주소 나오도록)
 - 게시글 리스트 페이지
+  <img width="926" height="469" alt="스크린샷 2026-05-10 122804" src="https://github.com/user-attachments/assets/2fdcd168-7aef-4a26-b12f-fa1c18cccb30" />
 - 게시글 등록 폼 페이지
+  <img width="784" height="634" alt="스크린샷 2026-05-10 122800" src="https://github.com/user-attachments/assets/1fba415c-7ce4-4c46-a4c6-01957711023e" />
 - 게시글 상세 페이지
+  <img width="885" height="441" alt="스크린샷 2026-05-10 122809" src="https://github.com/user-attachments/assets/c36084d9-1dfa-40ce-9fa1-2e14696c3ac3" />
 - 로그인 페이지
+  <img width="645" height="528" alt="스크린샷 2026-05-10 122818" src="https://github.com/user-attachments/assets/f455d937-e67e-40da-a178-731a0e39b161" />
 - 회원가입 페이지
+  <img width="612" height="621" alt="스크린샷 2026-05-10 122815" src="https://github.com/user-attachments/assets/69a620be-defd-4fc6-817d-30f1525799e6" />
 - (선택) 검색 페이지
+  <img width="901" height="377" alt="스크린샷 2026-05-10 122835" src="https://github.com/user-attachments/assets/48cd281b-f5f1-41a0-ac43-a7bb28827ed2" />
+
