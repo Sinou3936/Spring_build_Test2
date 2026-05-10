@@ -249,3 +249,13 @@ body {
     font-size: .82rem;
     margin-top: .3rem;
 }
+
+/* ── Search bar ── */
+.search-bar {
+    display: flex;
+    gap: .5rem;
+}
+
+.search-bar .form-control {
+    flex: 1;
+}

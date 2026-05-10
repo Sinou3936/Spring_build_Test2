@@ -47,4 +47,9 @@ public class ArticleService {
     public void delete(BigInteger id) {
         articleRespoitory.deleteById(id);
     }
+
+    public List<Article> findByKeyword(String keyword){
+        return articleRespoitory.findByTitleContaining(keyword);
+
+    }
 }

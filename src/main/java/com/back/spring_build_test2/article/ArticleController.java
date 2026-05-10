@@ -17,11 +17,16 @@ public class ArticleController {
     private final ArticleService articleService;
 
     @GetMapping("/list")
-    public String list(Model model){
+    public String list(@RequestParam(required = false) String keyword,Model model){
 
-        List<Article> articleList = articleService.findAll();
-
-        model.addAttribute("articleList",articleList);
+        if(keyword !=null && !keyword.isBlank()){
+            List<Article> articleList = articleService.findByKeyword(keyword);
+            model.addAttribute("articleList",articleList);
+            model.addAttribute("keyword",keyword);
+        }else{
+            List<Article> articleList = articleService.findAll();
+            model.addAttribute("articleList",articleList);
+        }
 
         return "article_list";
     }
